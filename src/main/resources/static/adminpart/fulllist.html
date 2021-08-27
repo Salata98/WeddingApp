@@ -1,0 +1,121 @@
+<div class="row">
+
+    <!-- list of guest left side-->
+    <div class="col">
+        <h2>Lista gości:</h2>
+        <div ng-repeat="guest in guestCtr.guestList">
+            <div class="jumbotron" style="background-color: #F5DEB3">
+                <h4>{{guest.firstName1}} {{guest.lastName1}}, {{guest.details.firstNameT}} {{guest.details.lastNameT}}</h4>
+                <h4>Obecność na weselu: {{guest.details.confirm}}</h4>
+                <button class="btn btn-lg btn-light" ng-click="guestCtr.loadGuestInfo(guest.id)">Zobacz!</button>
+                <button class="btn btn-lg btn-light" style="background-color: #DA70D6" ng-click="guestCtr.changeGuestInfo(guest.id, guest.login)">Zmień!</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!-- informations right side top-->
+    <div class="col">
+        <div class="row">
+            <div ng-show="guestCtr.guestInfo" class="jumbotron" style="background-color: #F5DEB3">
+                <h2>Goście:</h2>
+                <h1>{{guestCtr.guestInfo.firstName1}} {{guestCtr.guestInfo.lastName1}}</h1>
+                <h1>{{guestCtr.guestInfo.details.firstNameT}} {{guestCtr.guestInfo.details.lastNameT}}</h1>
+                <h2>Obecność na weselu: {{guestCtr.guestInfo.details.confirm}}</h2>
+                <h2>Obecność na poprawinach: {{guestCtr.guestInfo.details.secondDay}}</h2>
+                <h2>Czy zaszczepieni:</h2>
+                <h2>{{guestCtr.guestInfo.firstName1}}: {{guestCtr.guestInfo.details.vaccinated1}}</h2>
+                <h2>{{guestCtr.guestInfo.details.firstNameT}}: {{guestCtr.guestInfo.details.vaccinatedT}}</h2>
+                <h2>Menu: {{guestCtr.guestInfo.details.menu}}</h2>
+                <h2>Potrzeba noclegu: {{guestCtr.guestInfo.details.accommodation}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div ng-show="guestCtr.show" class="jumbotron" style="background-color: #F5DEB3">
+                <form>
+                    <div class="jumbotron" style="background-color: #F5DEB3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id" readonly data-ng-model="guestCtr.newGuestInfo.id">
+                            <label for="id">id</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="firstNameT" ng-model="guestCtr.newGuestInfo.firstNameT">
+                            <label for="firstNameT">Imię osoby towarzyszącej</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="lastNameT" ng-model="guestCtr.newGuestInfo.lastNameT">
+                            <label for="lastNameT">Nazwisko osoby towarzyszącej</label>
+                        </div>
+                        <div>
+                            <h5>Rodzaj menu:</h5>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="menu" value="NORMAL" checked ng-model="guestCtr.newGuestInfo.menu">
+                                    Mięsna
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="menu" value="VEGETARIAN" ng-model="guestCtr.newGuestInfo.menu">
+                                    Wegetariańska
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Zakwaterowanie:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="guestCtr.newGuestInfo.accommodation">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Obecność na weselu:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="guestCtr.newGuestInfo.confirm">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Obecność na poprawinach:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="guestCtr.newGuestInfo.secondDay">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Zaszczepiony gość:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <h6>{{guestCtr.guestInfo.firstName1}}:</h6>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="guestCtr.newGuestInfo.vaccinated1">
+                                </label>
+                            </div>
+                            <h6>{{guestCtr.guestInfo.details.firstNameT}}:</h6>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="guestCtr.newGuestInfo.vaccinatedT">
+                                </label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <a class="btn btn-lg btn-light" id="button" role="button" href="/guestlist" ng-click="guestCtr.updateDetails(guestCtr.newGuestInfo)">Zmień!</a>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

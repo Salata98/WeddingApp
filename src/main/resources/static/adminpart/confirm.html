@@ -1,0 +1,123 @@
+<div class="row">
+
+    <!-- list of guest left side-->
+    <div class="col">
+        <h2>Lista gości:</h2>
+        <div ng-repeat="guest in confCtr.guestList">
+            <div class="jumbotron" style="background-color: #F5DEB3">
+                <h4>{{guest.firstName1}} {{guest.lastName1}}, {{guest.details.firstNameT}} {{guest.details.lastNameT}}</h4>
+                <h4>Obecność na weselu: {{guest.details.confirm}}</h4>
+                <button class="btn btn-lg btn-light" ng-click="confCtr.loadGuestInfo(guest.id)">Zobacz!</button>
+                <button class="btn btn-lg btn-light" style="background-color: #DA70D6" ng-click="confCtr.changeGuestInfo(guest.id, guest.login)">Zmień!</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!-- informations right side top-->
+    <div class="col">
+        <div class="row">
+            <div ng-show="confCtr.guestInfo" class="jumbotron" style="background-color: #F5DEB3">
+                <h2>Goście:</h2>
+                <h1>{{confCtr.guestInfo.firstName1}} {{confCtr.guestInfo.lastName1}}</h1>
+                <h1>{{confCtr.guestInfo.details.firstNameT}} {{confCtr.guestInfo.details.lastNameT}}</h1>
+                <h2>Obecność na weselu: {{confCtr.guestInfo.details.confirm}}</h2>
+                <h2>Obecność na poprawinach: {{confCtr.guestInfo.details.secondDay}}</h2>
+                <h2>Czy zaszczepieni:</h2>
+                <h2>{{confCtr.guestInfo.firstName1}}: {{confCtr.guestInfo.details.vaccinated1}}</h2>
+                <h2>{{confCtr.guestInfo.details.firstNameT}}: {{confCtr.guestInfo.details.vaccinatedT}}</h2>
+                <h2>Menu: {{confCtr.guestInfo.details.menu}}</h2>
+                <h2>Potrzeba noclegu: {{confCtr.guestInfo.details.accommodation}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div ng-show="confCtr.show" class="jumbotron" style="background-color: #F5DEB3">
+                <form>
+                    <div class="jumbotron" style="background-color: #F5DEB3">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="id" readonly data-ng-model="confCtr.newGuestInfo.id">
+                            <label for="id">id</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="firstNameT" ng-model="confCtr.newGuestInfo.firstNameT">
+                            <label for="firstNameT">Imię osoby towarzyszącej</label>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" id="lastNameT" ng-model="confCtr.newGuestInfo.lastNameT">
+                            <label for="lastNameT">Nazwisko osoby towarzyszącej</label>
+                        </div>
+                        <div>
+                            <h5>Rodzaj menu:</h5>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="menu" value="NORMAL" checked ng-model="confCtr.newGuestInfo.menu">
+                                    Mięsna
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="menu" value="VEGETARIAN" ng-model="confCtr.newGuestInfo.menu">
+                                    Wegetariańska
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Zakwaterowanie:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="confCtr.newGuestInfo.accommodation">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Obecność na weselu:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="confCtr.newGuestInfo.confirm">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Obecność na poprawinach:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="confCtr.newGuestInfo.secondDay">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Zaszczepiony gość:</h5>
+                            <div>(zaznacz aby potwierdzić)</div>
+                            <h6>{{confCtr.guestInfo.firstName1}}:</h6>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="confCtr.newGuestInfo.vaccinated1">
+                                </label>
+                            </div>
+                            <h6>{{confCtr.guestInfo.details.firstNameT}}:</h6>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="confCtr.newGuestInfo.vaccinatedT">
+                                </label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <a class="btn btn-lg btn-light" id="button" role="button" href="/guestlist" ng-click="confCtr.updateDetails(confCtr.newGuestInfo)">Zmień!</a>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

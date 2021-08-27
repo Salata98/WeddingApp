@@ -1,0 +1,122 @@
+body{
+    height: 100%;
+    padding-top: 70px;
+    background-image: url("tlo3.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-bottom: 30px;
+
+
+}
+
+div{
+    text-align: center;
+    font-family: 'Akaya Kanadaka', sans-serif;
+    font-style: italic;
+    color: #330033;
+
+}
+
+nav{
+    background-color: #DDA0DD;
+    font-size: large;
+}
+
+.vertical-center {
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.ceremony {
+    text-align: left;
+    font-family: 'Akaya Kanadaka', sans-serif;
+    align-items: normal;
+}
+
+#button {
+    background-color: #DA70D6;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#header {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+
+
+.out {
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.in {
+
+  background-color: #ff99ac;
+  border-radius: 15px;
+  display: flex;
+  height: 100%;
+  position: relative;
+  width: 300px;
+}
+
+.heart-container {
+  align-items: center;
+  bottom: 50%;
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.heart-shape{
+  fill: #ff4d4d;
+  transform: scale(1.2);
+}
+
+.heart--text {
+  color: white;
+  font-family: arial;
+  font-size: 19px;
+  font-weight: 700;
+  z-index: 2;
+  position: absolute;
+
+}
+
+@media (max-width: 768px) {
+  .out {
+    height: 30px;
+  }
+  .heart-shape {
+    transform: scale(1);
+  }
+  .heart--text {
+    font-size: 16px;
+  }
+}
+
+
+#progress{
+    margin-bottom: 30px;
+    text-align: right;
+    opacity: 0.75;
+}
+
+#footer{
+    align-items: right;
+    margin-top: 30px;
+    text-align: right;
+    opacity: 0.75;
+}

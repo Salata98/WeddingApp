@@ -1,0 +1,23 @@
+{
+  "name": "wesele_ang1",
+  "homepage": "https://github.com/Salata98/wesele_routing.git",
+  "authors": [
+    "Anetka <olejnik.aneta@gmail.com>"
+  ],
+  "description": "wesele",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "angular-resource": "^1.8.2"
+  }
+}
